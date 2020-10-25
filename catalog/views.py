@@ -10,14 +10,12 @@ from .forms import BookForm, StudentForm, IssueBookForm
 def index(request):
     num_books = Book.objects.all().count()
     num_instances = BookInstance.objects.all().count()
-
-    num_visits = request.session.get('num_visits', 0)
-    request.session['num_visits'] = num_visits + 1
+    num_students = Student.objects.all().count()
 
     return render(
         request,
         'index.html',
-        context={'num_books':num_books,'num_instances':num_instances, 'num_visits':num_visits},
+        context={'num_books':num_books,'num_instances':num_instances, 'num_students':num_students},
     )
     
 class BookListView(generic.ListView):
