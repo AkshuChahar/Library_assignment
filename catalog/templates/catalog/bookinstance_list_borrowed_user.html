@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h3>Issued Books</h3>
+
+    {% if bookinstance_list %}
+    <ul>
+        <table>
+        <tr>
+            <th>Book</th>
+            <th>Due_Date</th>
+            <th></th>
+        </tr>
+        {% for bookinst in bookinstance_list %}
+        <tr>
+            <td><center>{{bookinst.book.book_name}}</center></td>
+            <td><center>{{bookinst.due_date}}</center></td>
+            <td><center><a href='/catalog/return_book/{{bookinst.pk}}/'>Return</a></center></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </ul>
+
+    {% else %}
+    <p>There are no books borrowed.</p>
+    {% endif %}
+    <a href="/catalog/issue_book/">Issue Book</a>
+    
+{% endblock %}

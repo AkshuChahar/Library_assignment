@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h2>Title: {{ book.book_name }}</h2>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+
+    <a href="/catalog/update_book/{{book.pk}}">Edit</a>
+    <a href="/catalog/delete_book/{{book.pk}}">Delete</a>
+
+{% endblock %}

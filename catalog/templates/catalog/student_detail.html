@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <h2>Student: {{ student.first_name }} {{ student.last_name }}</h2>
+    <p><strong>Mobile:</strong>{{ student.mobile }}</p>
+    <p><strong>Address:</strong>{{ student.address }}</p>
+    <p><strong>Joined on:</strong>{{ student.joined_on }}</p>
+
+    <a href="/catalog/update_student/{{student.pk}}">Edit</a>
+    <a href="/catalog/delete_student/{{student.pk}}">Delete</a>
+{% endblock %}
